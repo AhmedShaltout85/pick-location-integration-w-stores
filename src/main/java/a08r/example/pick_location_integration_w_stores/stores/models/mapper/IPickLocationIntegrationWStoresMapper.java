@@ -1,0 +1,11 @@
+package a08r.example.pick_location_integration_w_stores.stores.models.mapper;
+
+
+import a08r.example.pick_location_integration_w_stores.stores.models.dto.PickLocationIntegrationWStoresDTO;
+import a08r.example.pick_location_integration_w_stores.stores.models.stores.PickLocationIntegrationWStoresEntity;
+
+public interface IPickLocationIntegrationWStoresMapper {
+
+    PickLocationIntegrationWStoresEntity pickLocationIntegrationWStoresDTOToPickLocationEntity(PickLocationIntegrationWStoresDTO pickLocationIntegrationWStoresDTO);
+    PickLocationIntegrationWStoresDTO pickLocationIntegrationWStoresEntityToPickLocationDTO(PickLocationIntegrationWStoresEntity pickLocationIntegrationWStoresEntity);
+}
