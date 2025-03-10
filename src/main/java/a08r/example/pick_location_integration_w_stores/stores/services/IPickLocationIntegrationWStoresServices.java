@@ -8,7 +8,6 @@ import java.util.List;
 public interface IPickLocationIntegrationWStoresServices {
 
     ResponseEntity<List<String>> storeQty(String storeName);
-//    ResponseEntity<List<PickLocationIntegrationWStoresDTO>> storeQty(String storeName);
 
 
 }

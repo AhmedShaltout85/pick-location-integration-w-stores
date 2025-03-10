@@ -30,13 +30,6 @@ public class PickLocationIntegrationWStoresServicesImpl implements IPickLocation
     public ResponseEntity<List<String>> storeQty(String storeName) {
         List<String> pickLocationIntegrationWStoresEntityList = iPickLocationIntegrationWStoresRepository.StoreQty(storeName);
 
-//        List<String> pickLocationIntegrationWStoresDTOList = pickLocationIntegrationWStoresEntityList
-//                .stream()
-//                .map(I_PICK_LOCATION_INTEGRATION_W_STORES_MAPPER::pickLocationIntegrationWStoresEntityToPickLocationDTO)
-//                .toList();
-//        if (pickLocationIntegrationWStoresDTOList.isEmpty()) {
-//            throw new RecordNotFoundException("Sorry, No DATA Found!...");
-//        }
         return new ResponseEntity<>(pickLocationIntegrationWStoresEntityList, HttpStatus.OK);
     }
 }
