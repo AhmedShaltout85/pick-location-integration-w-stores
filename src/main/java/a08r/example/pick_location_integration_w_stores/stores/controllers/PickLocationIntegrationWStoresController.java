@@ -1,6 +1,7 @@
 package a08r.example.pick_location_integration_w_stores.stores.controllers;
 
 
+import a08r.example.pick_location_integration_w_stores.stores.models.dto.PickLocationIntegrationWStoresDTO;
 import a08r.example.pick_location_integration_w_stores.stores.services.IPickLocationIntegrationWStoresServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -29,9 +30,19 @@ public class PickLocationIntegrationWStoresController {
     @GetMapping(path ="/store-name/{storeName}")
     public ResponseEntity<List<String>> getStoreQty(@PathVariable String storeName){
 
-        ResponseEntity<List<String>> lists = iPickLocationIntegrationWStoresServices.storeQty(storeName);
-        Objects.requireNonNull(lists.getBody()).forEach(System.out::println);
+//        ResponseEntity<List<String>> lists = iPickLocationIntegrationWStoresServices.storeQty(storeName);
+//        Objects.requireNonNull(lists.getBody()).forEach(System.out::println);
         return this.iPickLocationIntegrationWStoresServices.storeQty(storeName);
+    }
+//    //TODO: GET http://localhost:9998/pick-location-integration-w-stores/api/v1/pick-loc-w-stores/s-name/مخزن فرع البلد
+//    @GetMapping(path ="/s-name/{storeName}")
+//    public ResponseEntity<List<PickLocationIntegrationWStoresDTO>> getStoreQtyBySName(@PathVariable String storeName){
+//        return this.iPickLocationIntegrationWStoresServices.getPickLocationIntegrationWStore(storeName);
+//    }
+ //TODO: GET http://localhost:9998/pick-location-integration-w-stores/api/v1/pick-loc-w-stores/all
+    @GetMapping(path ="/all")
+    public ResponseEntity<List<PickLocationIntegrationWStoresDTO>> getStoreQtyAll(){
+        return this.iPickLocationIntegrationWStoresServices.getPickLocationIntegrationWStores();
     }
 
 }

@@ -41,4 +41,7 @@ public interface IPickLocationIntegrationWStoresRepository extends JpaRepository
 
     @Procedure(name = "StoreQty") // used with any return type
     List<String> StoreQty(@Param("Store_Name") String  StoreName);
+    @Procedure(name = "TempStoreQty")
+    List<String> TempStoreQty(@Param("Store_Name") String  StoreName);
+//    List<PickLocationIntegrationWStoresEntity> findByStoreName(String storeName);
 }

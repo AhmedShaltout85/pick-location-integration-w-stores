@@ -27,9 +27,30 @@ public class PickLocationIntegrationWStoresServicesImpl implements IPickLocation
     }
 
     @Override
+    public ResponseEntity<List<PickLocationIntegrationWStoresDTO>> getPickLocationIntegrationWStores() {
+        List<PickLocationIntegrationWStoresEntity> pickLocationIntegrationWStoresEntityList = iPickLocationIntegrationWStoresRepository
+                .findAll();
+        List<PickLocationIntegrationWStoresDTO> pickLocationIntegrationWStoresDTOS = pickLocationIntegrationWStoresEntityList
+                .stream()
+                .map(I_PICK_LOCATION_INTEGRATION_W_STORES_MAPPER::pickLocationIntegrationWStoresEntityToPickLocationDTO)
+                .toList();
+        return new ResponseEntity<>(pickLocationIntegrationWStoresDTOS, HttpStatus.OK);
+    }
+
+    @Override
     public ResponseEntity<List<String>> storeQty(String storeName) {
         List<String> pickLocationIntegrationWStoresEntityList = iPickLocationIntegrationWStoresRepository.StoreQty(storeName);
 
         return new ResponseEntity<>(pickLocationIntegrationWStoresEntityList, HttpStatus.OK);
     }
+
+//    @Override
+//    public ResponseEntity<List<PickLocationIntegrationWStoresDTO>> getPickLocationIntegrationWStore(String storeName) {
+//        List<PickLocationIntegrationWStoresEntity> pickLocationIntegrationWStoresEntityList = iPickLocationIntegrationWStoresRepository.findByStoreName(storeName);
+//        List<PickLocationIntegrationWStoresDTO> pickLocationIntegrationWStoresDTOS = pickLocationIntegrationWStoresEntityList
+//                .stream()
+//                .map(I_PICK_LOCATION_INTEGRATION_W_STORES_MAPPER::pickLocationIntegrationWStoresEntityToPickLocationDTO)
+//                .toList();
+//        return new ResponseEntity<>(pickLocationIntegrationWStoresDTOS, HttpStatus.OK);
+//    }
 }

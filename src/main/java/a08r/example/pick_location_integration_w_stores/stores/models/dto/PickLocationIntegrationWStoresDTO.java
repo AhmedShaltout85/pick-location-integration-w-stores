@@ -9,9 +9,9 @@ import lombok.*;
 @AllArgsConstructor
 public class PickLocationIntegrationWStoresDTO {
 
-    private Long id;
+//    private Long id;
     private int itemNumber;
     private String itemName;
-    private Double sBal;
+    private float sBal;
     private String lastDate;
 }
